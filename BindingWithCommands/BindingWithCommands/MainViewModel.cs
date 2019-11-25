@@ -2,12 +2,19 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace BindingWithCommands
 {
     public class MainViewModel : INotifyPropertyChanged
     {
-        public MainViewModel() { }
+        public MainViewModel()
+        {
+            IncreaseCommand = new Command(IncreaseCount);            
+        }
+
+        public ICommand IncreaseCommand { get; } 
 
         int count = 0;
         public string DisplayCount => $"You clicked {count} time(s).";
